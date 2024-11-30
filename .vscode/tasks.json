@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compile OCaml",
+			"type": "shell",
+			"command": "ocamlc",
+			"args": [
+				"-o",
+				"build/${fileBasenameNoExtension}",
+				"-I",
+				"build",
+				"${file}"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"problemMatcher": [
+				"$ocamlc"
+			]
+		},
+		{
+			"label": "Move Auxiliary Files",
+			"type": "shell",
+			"command": "mv",
+			"args": [
+				"${fileBasenameNoExtension}.cmi",
+				"${fileBasenameNoExtension}.cmo",
+				"build/"
+			],
+			"problemMatcher": [],
+			"dependsOn": "Compile OCaml"
+		},
+		{
+			"label": "Run OCaml",
+			"type": "shell",
+			"command": "./build/${fileBasenameNoExtension}",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"dependsOn": "Move Auxiliary Files",
+			"problemMatcher": []
+		}
+	]
+}
