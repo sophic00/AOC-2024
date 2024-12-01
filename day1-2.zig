@@ -53,10 +53,8 @@ pub fn main() !void {
             break;
         while (i < 1000 and arr1[x] > arr2[i])
             i += 1;
-        // std.debug.print("{d}\n", .{i});
 
         while (i < 1000 and arr1[x] == arr2[i]) {
-            // std.debug.print("{d} {d}\n", .{ arr1[x], arr2[i] });
             j += 1;
             i += 1;
         }
@@ -65,8 +63,6 @@ pub fn main() !void {
         j = 0;
     }
     std.debug.print("{d}\n", .{sum});
-    // sum = 5;
-    // std.debug.print("{d} {d}\n", .{ arr1[x], arr2[x] });
 }
 
 pub fn sort(arr: []i64) void {
